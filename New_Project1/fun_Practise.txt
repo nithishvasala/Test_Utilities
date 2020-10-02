@@ -1,0 +1,7 @@
+Hii .. 
+my name is nithish i have created this text file for Practise.
+
+
+Django uses its built-in development server to run the web application. To start this server, we can use python manage.py runserver command.
+
+This command starts the server which runs on port 8000 and can be accessed at browser by entering localhost:8000. It shows a welcome page of the application.

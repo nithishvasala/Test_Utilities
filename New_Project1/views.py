@@ -4,6 +4,7 @@
 
 from django.http import HttpResponse
 from django.shortcuts import render
+import base64
 
 def index2(request):
     return render(request, 'index2.html')
@@ -29,6 +30,8 @@ def services(request):
     print(extra_space_remover)
     char_counter = request.POST.get('char_counter','default')
     print(char_counter)
+    font_increase = request.POST.get('font_increase','default')
+    print(font_increase)
 
     if remove_punc == 'on':
         analyzed = ""
@@ -76,9 +79,15 @@ def services(request):
                 count = count + 1
                 analyzed = count
         params = {'purpose' : 'Character Counter in the string', 'analyzed_text' : analyzed}
-        
-        
-    if( remove_punc !='on' and UpperCase != "on" and newline_remover !="on" and extra_space_remover !="on" and char_counter != "on"):
+
+    if (font_increase == "on"):
+        analyzed = ""
+        analyzed = base64.b64encode(new_text.encode('utf-8',errors = 'strict'))
+        params = {'purpose': 'Font size Increase', 'analyzed_text': analyzed}
+        new_text = analyzed
+
+    if( remove_punc !='on' and UpperCase != "on" and newline_remover !="on" and extra_space_remover !="on" and char_counter != "on" and font_increase !="on"):
         return render(request, 'services.html')
 
     return render(request, 'analyze2.html', params)
+

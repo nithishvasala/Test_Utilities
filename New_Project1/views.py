@@ -30,8 +30,8 @@ def services(request):
     print(extra_space_remover)
     char_counter = request.POST.get('char_counter','default')
     print(char_counter)
-    font_increase = request.POST.get('font_increase','default')
-    print(font_increase)
+    text_encoding = request.POST.get('text_encoding','default')
+    print(text_encoding)
 
     if remove_punc == 'on':
         analyzed = ""
@@ -80,13 +80,13 @@ def services(request):
                 analyzed = count
         params = {'purpose' : 'Character Counter in the string', 'analyzed_text' : analyzed}
 
-    if (font_increase == "on"):
+    if (text_encoding == "on"):
         analyzed = ""
         analyzed = base64.b64encode(new_text.encode('utf-8',errors = 'strict'))
-        params = {'purpose': 'Font size Increase', 'analyzed_text': analyzed}
+        params = {'purpose': 'Text Encoding', 'analyzed_text': analyzed}
         new_text = analyzed
 
-    if( remove_punc !='on' and UpperCase != "on" and newline_remover !="on" and extra_space_remover !="on" and char_counter != "on" and font_increase !="on"):
+    if( remove_punc !='on' and UpperCase != "on" and newline_remover !="on" and extra_space_remover !="on" and char_counter != "on" and text_encoding !="on"):
         return render(request, 'services.html')
 
     return render(request, 'analyze2.html', params)

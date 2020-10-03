@@ -58,9 +58,6 @@
       background-color: #2f2f2f; /* Black Gray */
       color: #fff;
     }
-  
-    
-    
      </style>
       <div class="alert alert-primary" role="alert">
         Welcome to Text Utilities! you can do anything with your text here.
@@ -76,7 +73,7 @@
       
         <div class="custom-control custom-switch">
             <input type="checkbox" name = "remove_punc" class="custom-control-input" id="customSwitch1">
-            <label class="custom-control-label" for="customSwitch1">To Remove Punctuations check the box</label>
+            <label class="custom-control-label" for="customSwitch1">Remove Punctuations</label>
         </div>
           
         <div class="custom-control custom-switch">
@@ -99,8 +96,16 @@
           <label class="custom-control-label" for="customSwitch5"> Character Counter</label>
         </div>
 
-         <button type="submit" class="btn btn-primary mt-3">Analyze Text</button>
+        <div class="custom-control custom-switch">
+          <input type="checkbox" name = "text_encoding" class="custom-control-input" id="customSwitch6">
+          <label class="custom-control-label" for="customSwitch6"> Text Encoding</label>
+        </div>
+
+
+         <button type="submit" class="btn btn-primary mt-3">Analyze Text</button><br>
         </form>
+        <br>
+        <br>
     </div>
  
     <!-- Optional JavaScript -->
